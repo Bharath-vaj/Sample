@@ -20,3 +20,21 @@ jobs:
         
       - name: print java file
         run: java javafile.java
+
+      - name: send mail using ci/cd
+        if: ${{ always() }}
+        uses: devellany/send-mailer@v1.0.2
+        with:
+          host: smtp.gmail.com
+          port: 465
+          account: ${{secrets.MAIL_ADDRESS}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          sender: Bharathvaj
+          from: ${{secrets.MAIL_ADDRESS}}
+          to: bharathvajt.it2020@gmail.com
+          subject: ${{github.job}} job of ${{github.repository}} has ${{job.status}}
+          body: ${{github.job}} job in workflow ${{github.workflow}} of ${{github.repository}} has ${{job.status}}
+          # # Optional content type (defaults to text/plain)
+          # contentType: text/plain
+          # # Optional attachment files (JSON type. require property 'path')
+          # attachments: '[{"path":"README.md"}]'
