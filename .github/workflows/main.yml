@@ -19,7 +19,7 @@ jobs:
           java-version: '21'
         
       - name: print java file
-        run: java javafile.jav
+        run: java javafile.java
 
       - name: send mail using ci/cd
         if: ${{ always() }}
@@ -37,8 +37,7 @@ jobs:
           to: bharathvajt.it2020@gmail.com
           from: ${{secrets.MAIL_ADDRESS}}
 
-          
           # # Optional content type (defaults to text/plain)
           # contentType: text/plain
           # # Optional attachment files (JSON type. require property 'path')
-          # attachments: '[{"path":"README.md"}]'
+          attachments: '[{"path":"README.md"}]'
