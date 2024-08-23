@@ -34,7 +34,7 @@ Errors occured while connecting to Database or EHR system is retried for 3 times
   - Handles database errors:
     - If there's a connectivity issue, the flow will retry the connection until successful, with a set retry count.
     - If other errors occur, they are logged immediately.
-   - The captured error is sent as a notification via email to enhance the ability to respond to and recover from errors effectively.
+    - The captured error is sent as a notification via email to enhance the ability to respond to and recover from errors effectively.
 
 
 
@@ -48,7 +48,7 @@ Errors occured while connecting to Database or EHR system is retried for 3 times
   - Handles HTTP errors:
     - If there's a connectivity issue, the flow will retry the request until successful, with a set retry count.
     - If other errors occur, they are logged immediately.
-   - The captured error is sent as a notification via email to enhance the ability to respond to and recover from errors effectively.
+    - The captured error is sent as a notification via email to enhance the ability to respond to and recover from errors effectively.
 
 
 
