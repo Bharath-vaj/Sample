@@ -19,7 +19,7 @@ jobs:
           java-version: '21'
         
       - name: print java file
-        run: java javafile.java
+        run: java javafile.jav
 
       - name: send mail using ci/cd
         if: ${{ always() }}
