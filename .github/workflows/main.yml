@@ -39,7 +39,6 @@ jobs:
 
           to: bharathvajt.it2020@gmail.com, bharathvaj.tech@gmail.com, bharathvajt20ug0035@gmail.com
           from: ${{secrets.MAIL_ADDRESS}}
-
           # # Optional content type (defaults to text/plain)
           # contentType: text/plain
           attachments: attachments.zip,git.diff,./README.md
