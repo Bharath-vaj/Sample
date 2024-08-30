@@ -1,40 +1,3 @@
-
-### `health-ehr-inventory-api-flow`
-
-## Overview
-
-The `health-ehr-inventory-api-flow` is part of a Mule application that integrates a generic Inventory Management System (Inventory) with an Electronic Health Record (EHR). This flow runs daily at 9:00 PM EST to retrieve inventory data from a cloud-based relational database and send it to the EHR in JSON format. The flow is designed to handle and log errors efficiently, including retrying failed connections and notifying stakeholders via email.
-
-### Flow Components and Description:
-
-1. **Scheduler:**
-   - Triggers the flow daily at 9:00 PM EST.
-
-2. **Start Logger:**
-   - Logs the start time and flow name.
-
-3. **Database Query:**
-   - Retrieves data from the database.
-   - Logs the number of records retrieved.
-   - Handles errors:
-     - Retries connections on connectivity issues with a set retry count.
-     - Logs other errors immediately.
-     - Sends error notifications via email to ensure prompt response and recovery.
-
-4. **Data Transformation:**
-   - Converts the retrieved data into JSON format for the EHR.
-
-5. **HTTP Request to EHR:**
-   - Sends the JSON data to the EHR via a POST request.
-   - Handles errors:
-   - Retries on connectivity issues with a set retry count.
-   - Logs other errors immediately.
-   - Sends error notifications via email to ensure prompt response and recovery.
-
-6. **End Logger:**
-   - Logs the end time and flow name.
-  
-7. 
 # DataWeave CLI Installation and Setup Guide for macOS
 
 **DataWeave CLI** is a powerful command-line tool that allows for querying, filtering, and mapping structured data from various formats like JSON, XML, CSV, and more, into other data formats using the DataWeave language.
@@ -133,34 +96,38 @@ The command will return the following JSON output, showing only the users who ar
 
 This example demonstrates how to use DataWeave CLI to filter and manipulate JSON data effectively.
 
+
 # Windows Installation and Setup Guide
 
-## 1. Install curl using Chocolatey
+## 1. Check for curl Installation
 
-### Step 1: Install Chocolatey
+### Step 1: Verify curl Installation
+Windows 10 and 11 come with curl pre-installed. To check if curl is available on your system:
+1. Open Command Prompt or PowerShell.
+2. Run the following command:
+   ```powershell
+   curl --version
+   ```
+
+### Step 2: Install curl using Chocolatey (If Not Installed)
+If curl is not installed, you can install it using Chocolatey.
+
+#### Install Chocolatey
 Open PowerShell as Administrator:
-1. Click on the Start menu, type PowerShell, right-click on Windows PowerShell, and select Run as administrator.
+1. Click on the Start menu, type PowerShell, right-click on Windows PowerShell, and select "Run as administrator."
 2. Run the following command to install Chocolatey:
    ```powershell
    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
    ```
 
-### Step 2: Verify Chocolatey Installation
-Close and reopen PowerShell as Administrator.
-Run the following command to check if Chocolatey is installed:
-```powershell
-choco
-```
-
-### Step 3: Install curl using Chocolatey
-Run the following command in PowerShell:
+#### Install curl
+Once Chocolatey is installed, run the following command in PowerShell to install curl:
 ```powershell
 choco install curl -y
 ```
 
-### Step 4: Verify curl Installation
+#### Verify curl Installation
 Check if curl is installed:
-Open Command Prompt or PowerShell and run:
 ```powershell
 curl --version
 ```
@@ -185,7 +152,7 @@ curl -L -o dataweave-cli.zip "https://github.com/mulesoft-labs/data-weave-cli/re
 ### Step 4: Unzip the File using 7-Zip
 Run the following command:
 ```bash
-"C:\Program Files\7-Zip\7z.exe" x "C:\Users\Nishanthi\dataweave-cli\dataweave-cli.zip" -o%USERPROFILE%\.dw
+"C:\Program Files\7-Zip\7z.exe" x "C:\Users\YourUserName\dataweave-cli\dataweave-cli.zip" -o%USERPROFILE%\.dw
 ```
 
 ### Step 5: Add DataWeave CLI to PATH
@@ -241,7 +208,7 @@ Set the environment variables for GraalVM.
 ## 5. Install Visual Studio Build Tools
 
 ### Step 1: Install Visual Studio Build Tools
-During installation, make sure to include Desktop development with C++ and Windows SDK.
+During installation, make sure to include "Desktop development with C++" and Windows SDK.
 
 ### Step 2: Set Path
 Set the path as:
@@ -267,4 +234,3 @@ Run the following command:
 ```bash
 dw run -i payload=<fullpathToUsers.json>  "output application/json ---payload map (value, index) -> { (index) : value}"
 ```
-
