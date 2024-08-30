@@ -26,6 +26,13 @@ The `health-ehr-inventory-api-flow` is part of a Mule application that integrate
 
 5. **HTTP Request to EHR:**
    - Sends the JSON data to the EHR via a POST request.
+   - Handles errors:
+   - Retries on connectivity issues with a set retry count.
+   - Logs other errors immediately.
+   - Sends error notifications via email to ensure prompt response and recovery.
+
+6. **End Logger:**
+   - Logs the end time and flow name.
   
 # Installation and Setup Guide
 
@@ -161,10 +168,4 @@ Run the following command:
 ```bash
 dw run -i payload=<fullpathToUsers.json>  "output application/json ---payload map (value, index) -> { (index) : value}"
 ```
-   - Handles errors:
-     - Retries on connectivity issues with a set retry count.
-     - Logs other errors immediately.
-     - Sends error notifications via email to ensure prompt response and recovery.
 
-6. **End Logger:**
-   - Logs the end time and flow name.
