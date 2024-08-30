@@ -97,7 +97,7 @@ The command will return the following JSON output, showing only the users who ar
 This example demonstrates how to use DataWeave CLI to filter and manipulate JSON data effectively.
 
 
-# Windows Installation and Setup Guide
+# DataWeave CLI Installation and Setup Guide for windows
 
 ## 1. Check for curl Installation
 
