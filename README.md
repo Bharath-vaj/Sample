@@ -226,14 +226,6 @@ Run the following command:
 ```bash
 gradlew native-cli:nativeCompile
 ```
-
-## 7. Run the Command
-
-### Step 1: Execute the Command
-Run the following command:
-```bash
-dw run -i payload=<fullpathToUsers.json>  "output application/json ---payload map (value, index) -> { (index) : value}"
-```
 ## Querying Content From a File
 
 Once the DataWeave CLI is installed, you can start using it to process data. For example, if you have a JSON file `users.json` with the following content:
