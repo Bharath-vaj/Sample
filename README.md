@@ -97,7 +97,7 @@ The command will return the following JSON output, showing only the users who ar
 This example demonstrates how to use DataWeave CLI to filter and manipulate JSON data effectively.
 
 
-# DataWeave CLI Installation and Setup Guide for windows
+# Windows Installation and Setup Guide
 
 ## 1. Check for curl Installation
 
@@ -234,3 +234,56 @@ Run the following command:
 ```bash
 dw run -i payload=<fullpathToUsers.json>  "output application/json ---payload map (value, index) -> { (index) : value}"
 ```
+## Querying Content From a File
+
+Once the DataWeave CLI is installed, you can start using it to process data. For example, if you have a JSON file `users.json` with the following content:
+
+```json
+[
+  {
+    "name": "User1",
+    "age": 19
+  },
+  {
+    "name": "User2",
+    "age": 18
+  },
+  {
+    "name": "User3",
+    "age": 15
+  },
+  {
+    "name": "User4",
+    "age": 13
+  },
+  {
+    "name": "User5",
+    "age": 16
+  }
+]
+```
+
+You can query this file to find users old enough to drink alcohol using the following command:
+
+```bash
+dw run -i payload=<fullpathToUsers.json> "output application/json --- payload filter (item) -> item.age > 17"
+```
+
+### Output
+
+The command will return the following JSON output, showing only the users who are 18 or older:
+
+```json
+[
+  {
+    "name": "User1",
+    "age": 19
+  },
+  {
+    "name": "User2",
+    "age": 18
+  }
+]
+```
+
+This example demonstrates how to use DataWeave CLI to filter and manipulate JSON data effectively.
