@@ -34,7 +34,106 @@ The `health-ehr-inventory-api-flow` is part of a Mule application that integrate
 6. **End Logger:**
    - Logs the end time and flow name.
   
-# Installation and Setup Guide
+7. 
+# DataWeave CLI Installation and Setup Guide for macOS
+
+**DataWeave CLI** is a powerful command-line tool that allows for querying, filtering, and mapping structured data from various formats like JSON, XML, CSV, and more, into other data formats using the DataWeave language.
+
+### Prerequisites
+- **macOS**: Ensure you have macOS installed and running.
+- **Homebrew**: This guide assumes that Homebrew is not yet installed on your system.
+
+### Step 1: Install Homebrew
+
+Homebrew is a package manager for macOS that simplifies the installation of software. To install Homebrew, open your Terminal and execute the following command:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+This command downloads and installs Homebrew on your macOS system.
+
+### Step 2: Tap the MuleSoft Labs Repository
+
+Next, you need to tap into the MuleSoft Labs repository, which contains the DataWeave CLI:
+
+```bash
+brew tap mulesoft-labs/data-weave
+```
+
+### Step 3: Install DataWeave CLI
+
+After tapping the MuleSoft Labs repository, install the DataWeave CLI by running:
+
+```bash
+brew install dw
+```
+
+This command will download and install the DataWeave CLI on your system.
+
+### Verification
+
+To verify that the installation was successful, run the following command in your terminal:
+
+```bash
+dw help
+```
+
+## Querying Content From a File
+
+Once the DataWeave CLI is installed, you can start using it to process data. For example, if you have a JSON file `users.json` with the following content:
+
+```json
+[
+  {
+    "name": "User1",
+    "age": 19
+  },
+  {
+    "name": "User2",
+    "age": 18
+  },
+  {
+    "name": "User3",
+    "age": 15
+  },
+  {
+    "name": "User4",
+    "age": 13
+  },
+  {
+    "name": "User5",
+    "age": 16
+  }
+]
+```
+
+You can query this file to find users old enough to drink alcohol using the following command:
+
+```bash
+dw run -i payload=<fullpathToUsers.json> "output application/json --- payload filter (item) -> item.age > 17"
+```
+
+### Output
+
+The command will return the following JSON output, showing only the users who are 18 or older:
+
+```json
+[
+  {
+    "name": "User1",
+    "age": 19
+  },
+  {
+    "name": "User2",
+    "age": 18
+  }
+]
+```
+
+This example demonstrates how to use DataWeave CLI to filter and manipulate JSON data effectively.
+
+# Windows Installation and Setup Guide
 
 ## 1. Install curl using Chocolatey
 
