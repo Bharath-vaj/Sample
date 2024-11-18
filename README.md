@@ -23,10 +23,7 @@ The flow performs the following actions:
    - If the total size of the consolidated file is under 10MB, it uploads the file to Salesforce as a new `ContentVersion`, replacing any existing files on the record. 
    - If the file size exceeds 10MB, no upload occurs, and a failure response is sent through mail.
 
-5. **Error Handling**  
-   - The flow handles invalid subscriber keys, unsupported file types, and file size limits, sending appropriate error messages and notifications when necessary.
-
-6. **Notifications**  
+5. **Notifications**  
    - Success or failure notifications are triggered after each key step, including after uploading the consolidated file or if the file size exceeds the limit. 
 
 ### 2. Error Handling  
