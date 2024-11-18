@@ -19,8 +19,8 @@ The `copperfox-gov-sync-papi` is an API hosted on MuleSoft Gov Cloud. It process
 
 ### 2. Error Handling  
 
-- Invalid key or file type: Logged and returned as an error.  
-- Salesforce connection or size errors: Logged and notified via email.  
+- If any validation fails (e.g., invalid subscriber key, non-CSV files, file size exceeds limits), an error is logged, and an email notification is sent.
+- If the file is successfully uploaded to Salesforce, an email notification is sent.
 
 ## Setup  
 
