@@ -30,8 +30,3 @@ The `copperfox-gov-sync-papi` is an API hosted on MuleSoft Gov Cloud. It process
 - Salesforce Connector (OAuth)  
 - Valid subscriber keys  
 - Email SMTP configuration for notifications  
-
-### Deployment  
-
-- Deploy to MuleSoft Gov Cloud.  
-- Configure Salesforce file management and email notification settings.  
